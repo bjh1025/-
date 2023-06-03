@@ -1,0 +1,25 @@
+#select_list{
+    background-color:rgb(255,143,135);
+}
+#select_list ul{
+    width:1610px;
+    margin:0 auto;
+    display:flex;
+    list-style:none;
+    overflow:hidden;
+    justify-content:space-between;
+}
+#select_list ul li{
+    float:left;
+    width:25%;
+    height:100%;
+    line-height:50px;
+    text-align:center;
+}
+#select_list ul li a{
+    display:block;
+}
+#select_list ul li a:hover{
+    background-color:antiquewhite;
+    color:white;
+}
