@@ -75,7 +75,7 @@ var lecturelist = [
     });
   
     // 필터링된 데이터를 테이블에 추가
-    var table = document.getElementById("resultTable");
+    var table = document.getElementById("resultTable1");
     var tbody = table.getElementsByTagName("tbody")[0];
     for (var i = 0; i < filteredData.length; i++) {
       var lecture = filteredData[i];
@@ -145,7 +145,7 @@ var lecturelist = [
   }
   
   function clearTable() {
-    var table = document.getElementById("resultTable");
+    var table = document.getElementById("resultTable1");
     var tbody = table.getElementsByTagName("tbody")[0];
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
@@ -160,10 +160,6 @@ var lecturelist = [
     var select6 = document.getElementById("mySelect6");
   
     var value1 = select1.options[select1.selectedIndex].value;
-    var value2 = select2.options[select2.selectedIndex].value;
-    var value4 = select4.options[select4.selectedIndex].value;
-    var value5 = select5.options[select5.selectedIndex].value;
-    var value6 = select6.options[select6.selectedIndex].value;
 
     if(value1==="교양학부"){
       select2.disabled =true;
