@@ -1,5 +1,7 @@
 <html>
     <head>
+    <!-- CSS 초기화 -->
+    <link href="style2.css" rel="stylesheet" type="text/css">
     </head>
 
     <body>
@@ -38,7 +40,45 @@
                 <td align="center">수강신청 종료일</td>
                 <td align="center">-</td>
             </tr>
-
         </table>
+    <!-- 현재 서울의 날씨 정보 테이블 설정(OPEN API 활용) -->
+    <table class="table3" border="1">
+    <tr>
+    <td>현재 날씨 정보(서울)</td>
+    </tr>
+    <tr>
+    <td class="ctemp">현재 온도:</td>
+    </tr>
+    <tr>
+    <td class="lowtemp">최저 온도:</td>
+    </tr>
+    <tr>
+    <td class="hightemp">최고 온도:</td>
+    </tr>
+    <tr>
+    <td class="icon">날씨:</td>
+    </tr>
+    </table>
+    <!--<img src="http://openweathermap.org/img/wn/10d.png"alt="">-->
+
+    <script src="https://code.jquery.com/jquery-3.6.2.js"
+    integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" 
+    crossorigin="anonymous">
+    </script>
+    <!-- API연동해서 현재 온도, 최저 온도, 최고 온도, 날씨 기호 아이콘 가져오기 -->
+    <script>
+    $.getJSON('https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=d66211bfe5ac27b5f6662a13a623a425&units=metric',
+    function(result) { 
+    $('.ctemp').append(result.main.temp);
+    $('.lowtemp').append(result.main.temp_min);
+    $('.hightemp').append(result.main.temp_max);
+    // result.weather[0].icon
+    var winconUrl = '<img src="http://openweathermap.org/img/wn/' +result.weather[0].icon +
+    '.png"alt="' + result.weather[0].description +'">'
+
+    $('.icon').html(winconUrl);
+    });          
+    </script>
+       
     </body>
 </html>
