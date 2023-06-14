@@ -1,0 +1,127 @@
+.table-wrapper {
+  max-height: 500px;
+  overflow-y: auto;
+}
+.table-wrapper2 {
+  max-height: 300px;
+  overflow-y: auto;
+}
+#resultTable1{
+  background-color: rgb(39, 204, 163);
+    text-align: center;
+    font-weight: bold;
+    border-top: solid 1.5px rgb(255, 255, 255);
+    border-bottom: solid 1.5px rgb(255, 255, 255);
+    color:white;
+    margin-top:10px;
+    right: 10px;
+    font-size: 18px;
+    border-top: 1px solid #ffffff;
+    border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
+}
+#resultTable2{
+  background-color: rgb(39, 204, 163);
+  text-align: center;
+  font-weight: bold;
+  border-top: solid 1.5px rgb(255, 255, 255);
+  border-bottom: solid 1.5px rgb(255, 255, 255);
+  color:white;
+  margin-top:10px;
+  right: 10px;
+  font-size: 18px;
+  border-top: 1px solid #ffffff;
+  border-collapse: collapse;
+  width: 100%;
+}
+.text1{
+  position:fixed;
+  top:430px;
+}
+
+.table2{
+  background-color: rgb(39, 204, 163);
+  text-align: center;
+  font-weight: bold;
+  border-top: solid 1.5px rgb(255, 255, 255);
+  border-bottom: solid 1.5px rgb(255, 255, 255);
+  color:white;
+  position: fixed;  
+  width:100%;
+  top: 450px;
+  right: 10px;
+  font-size: 18px;
+  border-top: 1px solid #ffffff;
+  border-collapse: collapse;
+}
+
+.bookmark-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+  
+  .bookmark-btn i {
+    transition: color 0.3s ease;
+  }
+  
+  .bookmark-btn i:hover {
+    color: yellow;
+  }
+  .btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #screen {
+    width: 1620px;
+    height: 350px;
+    text-align:center;
+    padding-top:150px;
+    user-select: none;
+    font-size:100px;
+    color:white;
+    font-family:italic;
+  }
+  #screen.waiting {
+    background-color: rgb(59, 163, 248);
+  }
+  #screen.ready {
+    background-color: red;
+    color: white;
+  }
+  #screen.now {
+    background-color: greenyellow;
+  }
+  .table3{
+    background-color:rgb(255, 107, 156);
+    text-align: center;
+    font-weight: bold;
+    border-width:1px;
+    border-collapse:separate;
+    width: 200px;
+    height: 250px;
+    margin-left:3%;
+    margin-top:5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
