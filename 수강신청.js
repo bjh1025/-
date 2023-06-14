@@ -1,101 +1,253 @@
-<html>
+var lecturelist = [
+    {major1:"IT학부",major2:"ICT융합학과", grade:1, lecname:"ICT융합개론", lecno:11350, div:"전공기초", credit:3, stuno:30, time1:"월", time2:"7,8,9", statime:"7", fintime:"9", profes:"교수1", lecdiv:"이론/실기", theory:1, practice: 2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:1, lecname:"C프로그래밍Ⅰ", lecno:11566, div:"전공기초", credit:3, stuno:30, time1:"목", time2: "1,2,3", statime: "1", fintime:"3", profes: "교수2", lecdiv: "이론/실기", theory: 1, practice: 2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:1, lecname:"정보보호기초", lecno:12536, div:"전공기초", credit:3, stuno:30, time1: "화", time2: "6,7,8", statime: "6", fintime:"8", profes: "교수3", lecdiv: "이론/실기", theory: 2, practice: 1,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:1, lecname:"자바프로그래밍Ⅰ", lecno:14505, div:"전공기초", credit:3, stuno:30, time1: "목", time2: "5,6,7", statime: "5", fintime:"7", profes: "교수4", lecdiv: "이론/실기", theory: 1, practice: 2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:1, lecname:"컴퓨팅사고", lecno:15716, div:"전공기초", credit:2, stuno:30, time1: "금", time2: "1,2",statime:"1",fintime:"2",profes: "교수5", lecdiv: "이론", theory: 2, practice: 0,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:2, lecname:"클라우드컴퓨팅", lecno:13364, div:"전공필수", credit:3, stuno:30, time1:"화",time2:"1,2,3", statime3: "1", fintime:"3",profes: "교수2", lecdiv: "이론/실기", theory: 1, practice: 2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:2, lecname:"선형대수", lecno:10847, div:"전공선택", credit:3, stuno:30, time1:"화", time2:"1,2,3", statime:"1", fintime:"3", profes: "교수2", lecdiv: "이론", theory: 3, practice: 0,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:2, lecname:"소프트웨어공학", lecno:10899, div:"전공선택", credit:3, stuno:30, time1: "수", time2:"1,2,3", statime:"1",fintime:"3", profes: "교수2", lecdiv: "이론", theory: 3, practice: 0,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:2, lecname:"운영체제", lecno:11164, div:"전공필수", credit:3, stuno:30, time1:"월", time2:"1,2,3", statime:"1",fintime:"3",profes: "교수2", lecdiv: "이론/실기", theory: 1, practice: 2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:2, lecname:"안드로이드 프로그래밍", lecno:13462, div:"전공필수", credit:3, stuno:30, time1: "목", time2:"8,9,10", statime:"8",fintime:"10", profes: "교수2", lecdiv: "실기", theory: 0, practice: 3,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:2, lecname:"블록체인의 이해 및 활용", lecno:14506, div:"전공선택", credit:3, stuno:30, time1: "수", time2:"5,6,7", statime:"5",fintime:"7", profes: "교수2", lecdiv: "실기", theory: 0, practice: 3,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:3, lecname:"웹프로그래밍", lecno:13448, div:"전공기초", credit:3, stuno:30, time1: "월", time2: 1, time3: 2, profes: "교수1", lecdiv: "실기", theory: 0, practice: 3,bookmark: false}, 
+    {major1:"IT학부",major2:"ICT융합학과", grade:3, lecname:"네트워크보안", lecno:12811, div:"전공선택", credit:3, stuno:30, time1:"수", time2:1, time3:2, profes:"교수3", lecdiv:"이론", theory:3, practice:0,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:3, lecname:"보안관제 및 모니터링", lecno:13454, div:"전공선택", credit:3, stuno:30, time1:"금", time2:"7,8,9", statime:"7", fintime:"9", profes:"교수4", lecdiv:"이론/실기", theory:1, practice:2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:3, lecname:"빅데이터개론", lecno:14507, div:"전공선택", credit:3, stuno:30, time1:"화", time2:"5,6,7", statime:"5", fintime:"7", profes:"교수4", lecdiv:"이론/실기", theory:1, practice:2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:3, lecname:"데이터베이스", lecno:14508, div:"전공선택", credit:3, stuno:30, time1:"수", time2:"5,6,7", statime:"5", fintime:"7", profes:"교수4", lecdiv:"이론/실기", theory:1, practice:2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:3, lecname:"5G통신시스템", lecno:15120, div:"전공선택", credit:3, stuno:30, time1:"화", time2:"8,9,10", statime:"8", fintime:"10", profes:"교수4", lecdiv:"이론", theory:3, practice:0,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:3, lecname:"1인미디어", lecno:15422, div:"전공선택", credit:3, stuno:30, time1:"금", time2:"1,2,3", statime:"1", fintime:"3", profes:"교수4", lecdiv:"이론/실기", theory:1, practice:2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:4, lecname:"졸업프로젝트ⅱ", lecno:12529, div:"전공선택", credit:3, stuno:30, time1:"목", time2:"1,2,3", statime:"1", fintime:"3", profes:"교수4", lecdiv:"실기", theory:0, practice:3,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:4, lecname:"IT비즈니스모델", lecno:12925, div:"전공선택", credit:3, stuno:30, time1:"금", time2:"5,6,7", statime:"5", fintime:"7", profes:"교수4", lecdiv:"이론/실기", theory:1, practice:2,bookmark: false},
+    {major1:"IT학부",major2:"ICT융합학과", grade:4, lecname:"빅데이터시각화", lecno:14510, div:"전공선택", credit:3, stuno:30, time1:"수", time2:"8,9,10", statime:"8", fintime:"10", profes:"교수4", lecdiv:"실기", theory:0, practice:3,bookmark: false},
 
-<head>
-  <!-- CSS 초기화 -->
-  <link href="style2.css" rel="stylesheet" type="text/css">
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 1, lecname:"소프트웨어기초", lecno: 12929, div: "전공선택", credit: 3, stuno: 30, time1: "화", time2: "5,6,7", statime: "5", fintime:"7", profes:"교수1", lecdiv:"이론/실기", theory:1, practice:2},
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 1, lecname:"자바프로그래밍Ⅰ", lecno: 14505, div: "전공기초", credit: 3, stuno: 30, time1: "금", time2: "1,2,3", statime: "1", fintime:"3", profes:"교수2", lecdiv:"실기", theory:0, practice:3},
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 1, lecname:"취업/창업과IT", lecno: 15121, div: "전공필수", credit: 2, stuno: 30, time1: "월", time2: "7,8", statime: "7", fintime:"8", profes:"교수1", lecdiv:"이론", theory:2, practice:0},
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 2, lecname:"웹프로그래밍", lecno: 11183, div: "전공필수", credit: 3, stuno: 30, time1: "금", time2: "1,2,3", statime: "1", fintime:"3", profes:"교수1", lecdiv:"이론/실기", theory:1, practice:2},
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 2, lecname:"C++프로그래밍", lecno: 13026, div: "전공선택", credit: 3, stuno: 30, time1: "수", time2: "1,2,3", statime: "1", fintime:"3", profes:"교수1", lecdiv:"실기", theory:0, practice:3},
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 2, lecname:"알고리즘", lecno: 15122, div: "전공필수", credit: 3, stuno: 30, time1: "목", time2: "1,2,3", statime: "1", fintime:"3", profes:"교수1", lecdiv:"이론/실기", theory:1, practice:2},
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 3, lecname:"프로세싱", lecno: 14513, div: "전공선택", credit: 3, stuno: 30, time1: "월", time2: "5,6,7", statime: "5", fintime:"7", profes:"교수1", lecdiv:"이론/실기", theory:1, practice:2},
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 3, lecname:"파이썬프로그래밍", lecno: 12345, div: "전공선택", credit: 3, stuno: 30, time1: "월", time2: "1,2,3", statime: "1", fintime:"3", profes:"교수1", lecdiv:"실기", theory:0, practice:3},
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 4, lecname:"데이터베이스", lecno: 10470, div: "전공선택", credit: 3, stuno: 30, time1: "월", time2: "6,7,8", statime: "6", fintime:"8", profes:"교수1", lecdiv:"이론/실기", theory:1, practice:2},
+    {major1:"IT학부",major2:"컴퓨터공학과", grade: 4, lecname:"졸업프로젝트I", lecno: 12529, div: "전공필수", credit: 3, stuno: 30, time1: "목", time2: "6,7,8", statime: "6", fintime:"8", profes:"교수1", lecdiv:"실기", theory:0, practice:3},
+
+    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"채플", lecno: 11423, div: "채플", credit: 0, stuno: 1200, time1: "화", time2: "3", statime: "3", fintime:"4", profes:"교목실", lecdiv:"실기", theory:0, practice:1},
+    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"채플", lecno: 11423, div: "채플", credit: 0, stuno: 700, time1: "화", time2: "7", statime: "7", fintime:"8", profes:"교목실", lecdiv:"실기", theory:0, practice:1},
+    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"합창I", lecno: 12248, div: "교양선택", credit: 2, stuno: 60, time1: "수", time2: "7,8", statime: "7", fintime:"8", profes:"교양교수1", lecdiv:"실기", theory:0, practice:2},
+    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"농구", lecno: 13249, div: "교양선택", credit: 2, stuno: 30, time1: "월", time2: "7,8", statime: "7", fintime:"8", profes:"교양교수2", lecdiv:"실기", theory:0, practice:2},
+    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"중국어I", lecno: 13719, div: "교양필수", credit: 2, stuno: 20, time1: "화", time2: "4,5", statime: "4", fintime:"5", profes:"교양교수3", lecdiv:"이론", theory:2, practice:0},
+    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"ACE202", lecno: 14900, div: "교양필수", credit: 2, stuno: 15, time1: "월", time2: "2,3", statime: "2", fintime:"3", profes:"교양교수4", lecdiv:"이론/실기", theory:1, practice:1},
+
+  ];
+
+    var bookmarkStatus = {};
+
+    function displaySelected() {
+    var select1 = document.getElementById("mySelect1");
+    var select2 = document.getElementById("mySelect2");
+    var select3 = document.getElementById("mySelect3");
+    var select4 = document.getElementById("mySelect4");
+    var select5 = document.getElementById("mySelect5");
+    var select6 = document.getElementById("mySelect6");
+
+    var value1 = select1.options[select1.selectedIndex].value;
+    var value2 = select2.options[select2.selectedIndex].value;
+    var value3 = select3.options[select3.selectedIndex].value;
+    var value4 = select4.options[select4.selectedIndex].value;
+    var value5 = select5.options[select5.selectedIndex].value;
+    var value6 = select6.options[select6.selectedIndex].value;
+
+    // 테이블 초기화
+    clearTable();
   
-</head>
-<script type="text/javascript" src="교과목조회.js"></script>
+    // 필터링된 데이터 가져오기
+    var filteredData = lecturelist.filter(function (lecture) {
+        
+      return (
+        (value1 === "전체" || lecture.major1 === value1) &&
+        (value2 === "전체" || lecture.major2 === value2) &&
+        (value3 === "전체" || lecture.grade === value3 || lecture.grade === parseInt(value3)) &&
+        (value4 === "전체" || lecture.time1 === value4) &&
+        (value5 === "전체" || lecture.statime >= parseInt(value5)) &&
+        (value6 === "전체" || lecture.fintime <= parseInt(value6))
 
-<body>
-    <table width="1610" height="100" border="1"align="center" justify-content="space-between">
-        <tr>
-            <td bgcolor="#fffdf0" align="center">카테고리: <select size="1">
-                <option selected>전공/학과 조회</option>
-            </select></td>
-            <td bgcolor="#fffdf0" align="center">학부: <select size="1" id="mySelect1" onclick="nonactivate()">
-                <option selected>전체</option>
-                <option value="IT학부">IT학부</option>
-                <option value="교양학부" >교양학부</option>
-                <option value="언어학부">언어학부</option>
-            </select></td>
-            <td bgcolor="#fffdf0" align="center">학과: <select size="1" id="mySelect2">
-                <option selected>전체</option>
-                <option value="ICT융합학과">ICT융합학과</option>
-                <option value="컴퓨터공학과">컴퓨터공학과</option>
-                <option value="학과2">산업보안학과</option>
-            </select></td>
-            <td bgcolor="#fffdf0" align="center">학년: <select size="1" id="mySelect3">
-                <option selected>전체</option>
-                <option value="1학년">1</option>
-                <option value="2학년">2</option>
-                <option value="3학년">3</option>
-                <option value="4하견">4</option>
-                <option value="전학년">전학년</option>
-            </select></td>
-            <td bgcolor="#fffdf0" align="center">요일: <select size="1" id="mySelect4">
-                <option selected>전체</option>
-                <option value="월">월요일</option> 
-                <option value="화">화요일</option>
-                <option value="수">수요일</option>
-                <option value="목">목요일</option>
-                <option value="금">금요일</option>
-            </select></td>
-            <td bgcolor="#fffdf0" align="center">시간: <select size="1" id="mySelect5" onclick="nonactivate()">
-                <option selected>전체</option>
-                <option value="1">1교시(09:00)</option>
-                <option value="2">2교시(10:00)</option>
-                <option value="3">3교시(11:00)</option>
-                <option value="4">4교시(12:00)</option>
-                <option value="5">5교시(13:00)</option>
-                <option value="6">6교시(14:00)</option>
-                <option value="7">7교시(15:00)</option>
-                <option value="8">8교시(16:00)</option>
-                <option value="9">9교시(17:00)</option>
-                <option value="10">10교시(18:00)</option>
-                </select>
-                ~
-                <select size="1"id="mySelect6" disabled>
-                <option selected>전체</option>
-                <option value="1">1교시(09:00)</option>
-                <option value="2">2교시(10:00)</option>
-                <option value="3">3교시(11:00)</option>
-                <option value="4">4교시(12:00)</option>
-                <option value="5">5교시(13:00)</option>
-                <option value="6">6교시(14:00)</option>
-                <option value="7">7교시(15:00)</option>
-                <option value="8">8교시(16:00)</option>
-                <option value="9">9교시(17:00)</option>
-                <option value="10">10교시(18:00)</option>
-            </select></td>
-            <td bgcolor="#fffdf0" align="center">
-                <button onclick="displaySelected()">조회</button>
-            </td>
-        </tr>
-    </table>
-    <table id="resultTable" class="table1">
-        <thead>
-          <tr>
-            <th>학부</th>
-            <th>개설학과</th>
-            <th>학년</th>
-            <th>교과목명</th>
-            <th>과목번호</th>
-            <th>이수구분</th>
-            <th>학점</th>
-            <th>정원</th>
-            <th>수강시간</th>
-            <th>담당교수</th>
-            <th>수업구분</th>
-            <th>이론</th>
-            <th>실습</th>
-            <th>관심과목</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- 조회 결과가 여기에 추가될 예정 -->
-        </tbody>
-      </table>
-</body>
+        
+      );
+    });
+  
+    // 필터링된 데이터를 테이블에 추가
+    var table = document.getElementById("resultTable2");
+    var tbody = table.getElementsByTagName("tbody")[0];
+    var selectTable = document.getElementById("selectTable");
+    var selectTbody = selectTable.getElementsByTagName("tbody")[0];
 
-</html>
+    for (var i = 0; i < filteredData.length; i++) {
+      var lecture = filteredData[i];
+      var row = tbody.insertRow();
+  
+      var cell1 = row.insertCell(0);
+      cell1.innerHTML = lecture.major1;
+
+      var cell2 = row.insertCell(1);
+      cell2.innerHTML = lecture.major2;
+  
+      var cell3 = row.insertCell(2);
+      cell3.innerHTML = lecture.grade;
+  
+      var cell4 = row.insertCell(3);
+      cell4.innerHTML = lecture.lecname;
+  
+      var cell5 = row.insertCell(4);
+      cell5.innerHTML = lecture.lecno;
+  
+      var cell6 = row.insertCell(5);
+      cell6.innerHTML = lecture.div;
+  
+      var cell7 = row.insertCell(6);
+      cell7.innerHTML = lecture.credit;
+  
+      var cell8 = row.insertCell(7);
+      cell8.innerHTML = lecture.stuno;
+  
+      var cell9 = row.insertCell(8);
+      cell9.innerHTML = lecture.time1 + "("+lecture.time2+")";
+  
+      var cell10 = row.insertCell(9);
+      cell10.innerHTML = lecture.profes;
+  
+      var cell11 = row.insertCell(10);
+      cell11.innerHTML = lecture.lecdiv;
+  
+      var cell12 = row.insertCell(11);
+      cell12.innerHTML = lecture.theory;
+  
+      var cell13 = row.insertCell(12);
+      cell13.innerHTML = lecture.practice;
+      
+      var cell14 = row.insertCell(13); // 신청 버튼 셀 추가
+      var applyButton = document.createElement("button");
+      applyButton.innerHTML = "신청";
+      applyButton.addEventListener("click", function () {
+        var selectedRow = this.parentNode.parentNode;
+        var selectedCells = selectedRow.getElementsByTagName("td");
+        var rowData = [];
+      
+        // Retrieve data from selected row
+        for (var j = 0; j < selectedCells.length; j++) {
+          rowData.push(selectedCells[j].innerHTML);
+        }
+      
+        // Check if the data already exists in the selectTable based on lecnum value
+        var isDuplicate = false;
+        var selectRows = selectTbody.getElementsByTagName("tr");
+        for (var l = 0; l < selectRows.length; l++) {
+          var selectCells = selectRows[l].getElementsByTagName("td");
+          var existingLecnum = parseInt(selectCells[0].innerHTML); // Assuming lecnum is always at index 0
+          var newLecnum = parseInt(rowData[0]); // Assuming lecnum is always at index 0
+      
+          if (existingLecnum === newLecnum) {
+            isDuplicate = true;
+            break;
+          }
+        }
+      
+        // Check if the data is not a duplicate and the lecture time overlaps
+        if (!isDuplicate) {
+          var currentTotalCredit = 0;
+          for (var k = 0; k < selectRows.length; k++) {
+            var selectCells = selectRows[k].getElementsByTagName("td");
+            var creditCell = selectCells[6]; // Assuming credit is always at index 6
+            var creditValue = parseInt(creditCell.innerHTML);
+            currentTotalCredit += creditValue;
+          }
+      
+          var selectedCredit = parseInt(rowData[6]); // Assuming credit is always at index 6
+      
+          if (currentTotalCredit + selectedCredit <= 20) {
+            var isTimeDuplicate = false;
+            for (var m = 0; m < selectRows.length; m++) {
+              var selectCells = selectRows[m].getElementsByTagName("td");
+              var existingTime1 = selectCells[8].innerText.split("(")[0].trim();
+              var newTime1 = rowData[8].split("(")[0].trim();
+              var existingTimeRange = selectCells[8].innerText.split("(")[1].split(")")[0];
+      
+              // Extract the days from the time range
+              var existingDays = existingTimeRange.split(",");
+              var newDays = rowData[8].split("(")[1].split(",");
+      
+              // Check if the days overlap
+              var isDayOverlap = existingDays.some(function (day) {
+                return newDays.includes(day.trim());
+              });
+      
+              if (existingTime1 === newTime1 && isDayOverlap) {
+                isTimeDuplicate = true;
+                break;
+              }
+            }
+      
+            if (!isTimeDuplicate) {
+              // Rest of the code to add the lecture to selectTable
+              var newSelectRow = selectTbody.insertRow(-1);
+      
+              for (var n = 0; n < rowData.length; n++) {
+                var cell = newSelectRow.insertCell(n);
+                cell.innerHTML = rowData[n];
+              }
+              alert("강의가 추가되었습니다.");
+            } else {
+              alert("해당 강의가 이미 신청되었거나, 강의 시간이 중복됩니다.");
+            }
+          } else {
+            alert("신청할 수 있는 최대 학점을 초과하였습니다.");
+          }
+        } else {
+          alert("해당 강의가 이미 신청되었습니다.");
+        }
+      });
+    
+    cell14.appendChild(applyButton);
+    }
+  
+}
+ 
+  function clearTable() {
+    var table = document.getElementById("resultTable2");
+    var tbody = table.getElementsByTagName("tbody")[0];
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
+  }
+
+  function nonactivate1(){
+    var select1 = document.getElementById("mySelect1");
+    var select2 = document.getElementById("mySelect2");
+    var select5 = document.getElementById("mySelect5");
+    var select6 = document.getElementById("mySelect6");
+  
+    var value1 = select1.options[select1.selectedIndex].value;
+
+    if(value1==="교양학부"){
+      select2.disabled =true;
+    } else {
+      select2.disabled=false;
+    }
+
+    for (var i = 0; i < select6.options.length; i++) {
+      var option = select6.options[i];
+      var optionValue = parseInt(option.value);
+      var selectedValue = parseInt(select5.value);
+    
+      if (optionValue <= selectedValue) {
+        select6.disabled=false;
+        option.disabled = true; // 선택한 값보다 작거나 같은 교시는 비활성화
+      } else {
+        select6.disabled=false;
+        option.disabled = false; // 선택한 값보다 큰 교시는 활성화
+      }
+    }
+}
+
+  
+    
