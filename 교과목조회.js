@@ -173,7 +173,6 @@ var lecturelist = [
   function nonactivate(){
     var select1 = document.getElementById("mySelect1");
     var select2 = document.getElementById("mySelect2");
-    var select4 = document.getElementById("mySelect4");
     var select5 = document.getElementById("mySelect5");
     var select6 = document.getElementById("mySelect6");
   
