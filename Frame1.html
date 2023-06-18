@@ -3,68 +3,78 @@
     <!-- CSS 초기화 -->
     <link href="style2.css" rel="stylesheet" type="text/css">
     </head>
-
+    <script type="text/javascript" src="현재시간.js"></script>
+    
     <body>
         <a href="https://www.hansei.ac.kr/sites/kor/index.do" target=_top>
-            <h3><img src="hansei.jfif" align="middle" height="50">
+            <h3><img src="image1.jpg" align="middle" height="50">
                  <font color="green">한세대학교</font></a></h3>
-        <table width="200" height="500" border="1" cellpadding="5" align="center">
+            <p id="current-time" class="time1"></p>
+        <table width="200" height="300" border="1" cellpadding="5" align="center" bgcolor="#D3F7F8">
             <tr>
                 <td align="center" colspan="2">2023년 2학기 수강신청</td>
             </tr>
             <tr>
                 <td align="center">학번</td>
-                <td align="center">-</td>
+                <td id="studentId" align="center">201910105</td>
             </tr>
             <tr>
                 <td align="center">성명</td>
-                <td align="center">-</td>
+                <td align="center">김가나</td>
             </tr>
             <tr>
                 <td align="center">학년</td>
-                <td align="center">-</td>
+                <td align="center" id="grade">3</td>
             </tr>
             <tr>
                 <td align="center">학부</td>
-                <td align="center">-</td>
+                <td align="center">IT학부</td>
             </tr>
             <tr>
                 <td align="center">학과</td>
-                <td align="center">-</td>
+                <td align="center">ICT융합학과</td>
             </tr>
             <tr>
                 <td align="center">수강신청 시작일</td>
-                <td align="center">-</td>
+                <td align="center">2023.06.07 10:00</td>
             </tr>
             <tr>
                 <td align="center">수강신청 종료일</td>
-                <td align="center">-</td>
+                <td align="center">2023.06.09 16:00</td>
             </tr>
         </table>
+        
     <!-- 현재 서울의 날씨 정보 테이블 설정(OPEN API 활용) -->
     <table class="table3" border="1">
     <tr>
-    <td>현재 날씨 정보(서울)</td>
+    <td colspan="2">현재 날씨 정보(서울)</td>
+    
     </tr>
     <tr>
-    <td class="ctemp">현재 온도:</td>
+    <td>현재 온도:</td>
+    <td class="ctemp"></td>
     </tr>
     <tr>
-    <td class="lowtemp">최저 온도:</td>
+    <td>최저 온도:</td>
+    <td class="lowtemp"></td>
     </tr>
     <tr>
-    <td class="hightemp">최고 온도:</td>
+    <td>최고 온도:</td>
+    <td class="hightemp"></td>
     </tr>
     <tr>
-    <td class="icon">날씨:</td>
+    <td>날씨:</td>
+    <td class="icon"></td>
     </tr>
     </table>
+    
     <!--<img src="http://openweathermap.org/img/wn/10d.png"alt="">-->
 
     <script src="https://code.jquery.com/jquery-3.6.2.js"
     integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" 
     crossorigin="anonymous">
     </script>
+    
     <!-- API연동해서 현재 온도, 최저 온도, 최고 온도, 날씨 기호 아이콘 가져오기 -->
     <script>
     $.getJSON('https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=d66211bfe5ac27b5f6662a13a623a425&units=metric',
