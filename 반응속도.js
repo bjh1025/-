@@ -1,35 +1,46 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const screen = document.querySelector("#screen");
-    const result = document.querySelector("#result");
-  
-    let startTime; // 시작시간
-    let endTime; // 끝나는 시간
-    let responseTime; // 측정시간
-    let records = []; // 평균 반응 속도 구할 빈 배열
-    let timeoutId; // setTimeout 함수를 담을 변수
-  
-    screen.addEventListener("click", () => {
-      if (screen.classList.contains("waiting")) {
-        screen.classList.replace("waiting", "ready");
-        screen.textContent = "초록색이 되면 클릭하세요!";
-        timeoutId = setTimeout(() => {
-          startTime = new Date();
-          screen.classList.replace("ready", "now");
-          screen.textContent = "클릭 하세요!";
-        }, Math.floor(Math.random() * 1000) + 2000);
-      } else if (screen.classList.contains("ready")) {
-        clearTimeout(timeoutId);
-        screen.textContent = '너무 성급합니다!';
-        screen.classList.replace('ready', 'waiting')
-      } else if (screen.classList.contains("now")) {
-        endTime = new Date();
-        responseTime = endTime - startTime; // 측정시간
-        records.push(responseTime);
-        let Avg = records.reduce((acc, cur) => {return acc+cur}, 0) / records.length; // 평균 반응 속도
-        result.textContent = '현재 : ' + responseTime + " ms" + ' ' + '평균 속도 : ' + Avg;
-      
-        screen.classList.replace("now", "waiting");
-        screen.textContent = "클릭해서 시작하세요";
-      }
-    });
-  });
+var reactionTimes = []; // Array to store reaction time data
+
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function handleClick() {
+  var start = new Date().getTime();
+  var box = document.getElementById("box");
+  box.innerHTML = "";
+
+  setTimeout(function () {
+    var button = document.createElement("button");
+    button.innerHTML = "클릭하세요!";
+    button.style.width = "200px";
+    button.style.height = "100px";
+    button.style.position = "absolute";
+    button.style.left = getRandomNumber(0, box.offsetWidth - button.offsetWidth) + "px";
+    button.style.top = getRandomNumber(0, box.offsetHeight - button.offsetHeight) + "px";
+    box.appendChild(button);
+
+    button.onclick = function () {
+      var end = new Date().getTime();
+      var reactionTime = (end - start) / 1000;
+      reactionTimes.push(reactionTime); // Store the reaction time in the array
+      alert("반응속도 시간: " + reactionTime + "초");
+      box.innerHTML = '<font size="16">상단에 "반응속도 테스트 시작!" 버튼을 클릭하시면 3초후에 이 박스 안에 버튼이 나타납니다.</font>';
+    };
+  }, 3000);
+}
+
+function displayRecords() {
+  var recordsMessage = "기록 확인:\n\n";
+  for (var i = 0; i < reactionTimes.length; i++) {
+    recordsMessage += "반응 시간: " + (i + 1) + ": " + reactionTimes[i] + "초\n";
+  }
+  alert(recordsMessage);
+}
+
+window.onload = function () {
+  var startButton = document.getElementById("react");
+  startButton.onclick = handleClick;
+
+  var recordButton = document.getElementById("record");
+  recordButton.onclick = displayRecords;
+};
