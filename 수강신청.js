@@ -32,8 +32,8 @@ var lecturelist = [
     {major1:"IT학부",major2:"컴퓨터공학과", grade: 4, lecname:"데이터베이스", lecno: 10470, div: "전공선택", credit: 3, stuno: 30, time1: "월", time2: "6,7,8", statime: "6", fintime:"8", profes:"교수1", lecdiv:"이론/실기", theory:1, practice:2},
     {major1:"IT학부",major2:"컴퓨터공학과", grade: 4, lecname:"졸업프로젝트I", lecno: 12529, div: "전공필수", credit: 3, stuno: 30, time1: "목", time2: "6,7,8", statime: "6", fintime:"8", profes:"교수1", lecdiv:"실기", theory:0, practice:3},
 
-    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"채플", lecno: 11423, div: "채플", credit: 0, stuno: 1200, time1: "화", time2: "3", statime: "3", fintime:"4", profes:"교목실", lecdiv:"실기", theory:0, practice:1},
-    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"채플", lecno: 11423, div: "채플", credit: 0, stuno: 700, time1: "화", time2: "7", statime: "7", fintime:"8", profes:"교목실", lecdiv:"실기", theory:0, practice:1},
+    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"채플3", lecno: 11423, div: "채플3", credit: 0, stuno: 1200, time1: "화", time2: "3", statime: "3", fintime:"4", profes:"교목실", lecdiv:"실기", theory:0, practice:1},
+    {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"채플7", lecno: 11423, div: "채플7", credit: 0, stuno: 700, time1: "화", time2: "7", statime: "7", fintime:"8", profes:"교목실", lecdiv:"실기", theory:0, practice:1},
     {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"합창I", lecno: 12248, div: "교양선택", credit: 2, stuno: 60, time1: "수", time2: "7,8", statime: "7", fintime:"8", profes:"교양교수1", lecdiv:"실기", theory:0, practice:2},
     {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"농구", lecno: 13249, div: "교양선택", credit: 2, stuno: 30, time1: "월", time2: "7,8", statime: "7", fintime:"8", profes:"교양교수2", lecdiv:"실기", theory:0, practice:2},
     {major1:"교양학부",major2:"교양학부", grade:"전학년", lecname:"중국어I", lecno: 13719, div: "교양필수", credit: 2, stuno: 20, time1: "화", time2: "4,5", statime: "4", fintime:"5", profes:"교양교수3", lecdiv:"이론", theory:2, practice:0},
@@ -195,7 +195,34 @@ var lecturelist = [
                 var cell = newSelectRow.insertCell(n);
                 cell.innerHTML = rowData[n];
               }
-              alert("강의가 추가되었습니다.");
+              // Remove apply button cell
+              newSelectRow.deleteCell(-1);
+
+              // Add cancel button cell
+              var cancelCell = newSelectRow.insertCell();
+              var cancelButton = document.createElement("button");
+              cancelButton.innerHTML = "취소";
+              cancelButton.addEventListener("click", function () {
+                var selectedRow = this.parentNode.parentNode;
+                selectedRow.remove();
+                 // Subtract the canceled lecture's credit from totalCredits
+          var canceledCredit = parseInt(selectedRow.cells[6].innerHTML); // Assuming credit is always at index 6
+          var currentTotalCreditsElement = document.getElementById("totalCredits");
+          var currentTotalCredits = parseInt(currentTotalCreditsElement.innerHTML);
+          currentTotalCredits -= canceledCredit;
+          currentTotalCreditsElement.innerHTML = currentTotalCredits;
+
+          alert("강의 신청이 취소되었습니다.");
+        });
+        cancelCell.appendChild(cancelButton);
+
+        // Add the selected lecture's credit to totalCredits
+        var currentTotalCreditsElement = document.getElementById("totalCredits");
+        var currentTotalCredits = parseInt(currentTotalCreditsElement.innerHTML);
+        currentTotalCredits += selectedCredit;
+        currentTotalCreditsElement.innerHTML = currentTotalCredits;
+
+        alert("강의가 추가되었습니다.");
             } else {
               alert("해당 강의가 이미 신청되었거나, 강의 시간이 중복됩니다.");
             }
