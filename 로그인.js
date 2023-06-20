@@ -13,7 +13,7 @@ var studentData = [
     });
 
     if (matchedStudent) {
-        window.location.href = "FinalProject.html?id=" + id;
+        window.location.href = "index.html?id=" + id;
     } else {
         alert("아이디 또는 비밀번호가 일치하지 않습니다.");
     }
