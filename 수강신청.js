@@ -132,19 +132,17 @@ var lecturelist = [
         var selectedRow = this.parentNode.parentNode;
         var selectedCells = selectedRow.getElementsByTagName("td");
         var rowData = [];
-      
-        // Retrieve data from selected row
+
         for (var j = 0; j < selectedCells.length; j++) {
           rowData.push(selectedCells[j].innerHTML);
         }
       
-        // Check if the data already exists in the selectTable based on lecnum value
         var isDuplicate = false;
         var selectRows = selectTbody.getElementsByTagName("tr");
         for (var l = 0; l < selectRows.length; l++) {
           var selectCells = selectRows[l].getElementsByTagName("td");
-          var existingLecnum = parseInt(selectCells[0].innerHTML); // Assuming lecnum is always at index 0
-          var newLecnum = parseInt(rowData[0]); // Assuming lecnum is always at index 0
+          var existingLecnum = parseInt(selectCells[0].innerHTML); 
+          var newLecnum = parseInt(rowData[0]);
       
           if (existingLecnum === newLecnum) {
             isDuplicate = true;
@@ -152,17 +150,16 @@ var lecturelist = [
           }
         }
       
-        // Check if the data is not a duplicate and the lecture time overlaps
         if (!isDuplicate) {
           var currentTotalCredit = 0;
           for (var k = 0; k < selectRows.length; k++) {
             var selectCells = selectRows[k].getElementsByTagName("td");
-            var creditCell = selectCells[6]; // Assuming credit is always at index 6
+            var creditCell = selectCells[6];
             var creditValue = parseInt(creditCell.innerHTML);
             currentTotalCredit += creditValue;
           }
       
-          var selectedCredit = parseInt(rowData[6]); // Assuming credit is always at index 6
+          var selectedCredit = parseInt(rowData[6]); 
       
           if (currentTotalCredit + selectedCredit <= 20) {
             var isTimeDuplicate = false;
@@ -171,12 +168,10 @@ var lecturelist = [
               var existingTime1 = selectCells[8].innerText.split("(")[0].trim();
               var newTime1 = rowData[8].split("(")[0].trim();
               var existingTimeRange = selectCells[8].innerText.split("(")[1].split(")")[0];
-      
-              // Extract the days from the time range
+
               var existingDays = existingTimeRange.split(",");
               var newDays = rowData[8].split("(")[1].split(",");
-      
-              // Check if the days overlap
+
               var isDayOverlap = existingDays.some(function (day) {
                 return newDays.includes(day.trim());
               });
@@ -188,25 +183,22 @@ var lecturelist = [
             }
       
             if (!isTimeDuplicate) {
-              // Rest of the code to add the lecture to selectTable
+
               var newSelectRow = selectTbody.insertRow(-1);
       
               for (var n = 0; n < rowData.length; n++) {
                 var cell = newSelectRow.insertCell(n);
                 cell.innerHTML = rowData[n];
               }
-              // Remove apply button cell
               newSelectRow.deleteCell(-1);
 
-              // Add cancel button cell
               var cancelCell = newSelectRow.insertCell();
               var cancelButton = document.createElement("button");
               cancelButton.innerHTML = "취소";
               cancelButton.addEventListener("click", function () {
                 var selectedRow = this.parentNode.parentNode;
                 selectedRow.remove();
-                 // Subtract the canceled lecture's credit from totalCredits
-          var canceledCredit = parseInt(selectedRow.cells[6].innerHTML); // Assuming credit is always at index 6
+          var canceledCredit = parseInt(selectedRow.cells[6].innerHTML); 
           var currentTotalCreditsElement = document.getElementById("totalCredits");
           var currentTotalCredits = parseInt(currentTotalCreditsElement.innerHTML);
           currentTotalCredits -= canceledCredit;
@@ -216,7 +208,6 @@ var lecturelist = [
         });
         cancelCell.appendChild(cancelButton);
 
-        // Add the selected lecture's credit to totalCredits
         var currentTotalCreditsElement = document.getElementById("totalCredits");
         var currentTotalCredits = parseInt(currentTotalCreditsElement.innerHTML);
         currentTotalCredits += selectedCredit;
