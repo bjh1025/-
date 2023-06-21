@@ -26,16 +26,16 @@
     border-collapse: collapse;
 }
 #resultTable1 td{
-  border: 1px solid #ffffff; /* td 사이에 구분선을 설정 */
+  border: 1px solid #ffffff; 
   padding: 8px;
-  border: none; /* 기본 테두리 제거 */
-  border-radius: 10px; /* 테두리 꼭짓점을 둥글게 */
+  border: none; 
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 #resultTable1 th{
-  border: 1px solid #ffffff; /* td 사이에 구분선을 설정 */
+  border: 1px solid #ffffff; 
   padding: 8px;
-  border-radius: 10px; /* 테두리 꼭짓점을 둥글게 */
+  border-radius: 10px; 
 }
 #resultTable2{
   background-color: rgb(39, 204, 163);
@@ -52,16 +52,16 @@
   width: 100%;
 }
 #resultTable2 td{
-  border: 1px solid #ffffff; /* td 사이에 구분선을 설정 */
+  border: 1px solid #ffffff;
   padding: 8px;
-  border: none; /* 기본 테두리 제거 */
-  border-radius: 10px; /* 테두리 꼭짓점을 둥글게 */
+  border: none;
+  border-radius: 10px; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 #resultTable2 th{
-  border: 1px solid #ffffff; /* td 사이에 구분선을 설정 */
+  border: 1px solid #ffffff; 
   padding: 8px;
-  border-radius: 10px; /* 테두리 꼭짓점을 둥글게 */
+  border-radius: 10px; 
 }
 .text1{
   position:fixed;
@@ -87,16 +87,16 @@
   border-collapse: collapse;
 }
 .table2 td{
-  border: 1px solid #ffffff; /* td 사이에 구분선을 설정 */
+  border: 1px solid #ffffff; 
   padding: 8px;
-  border: none; /* 기본 테두리 제거 */
-  border-radius: 10px; /* 테두리 꼭짓점을 둥글게 */
+  border: none;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .table2 th{
-  border: 1px solid #ffffff; /* td 사이에 구분선을 설정 */
+  border: 1px solid #ffffff; 
   padding: 8px;
-  border-radius: 10px; /* 테두리 꼭짓점을 둥글게 */
+  border-radius: 10px; 
 }
 
 .bookmark-btn {
@@ -144,18 +144,14 @@
   margin: 20px auto; 
   padding: 20px; 
   text-align: center; 
-  display: flex; /* Enable flexbox layout */
-      justify-content: center; /* Center content horizontally */
+  display: flex; 
+      justify-content: center; 
       align-items: center; 
 }
 .reactbutton1{
   margin-left:700px;
   
 }
-
-
-
-
 
 
 
