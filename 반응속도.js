@@ -1,4 +1,4 @@
-var reactionTimes = []; // Array to store reaction time data
+var reactionTimes = [];
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -22,8 +22,8 @@ function handleClick() {
     button.onclick = function () {
       var end = new Date().getTime();
       var reactionTime = (end - start) / 1000;
-      reactionTimes.push(reactionTime); // Store the reaction time in the array
-      alert("반응속도 시간: " + reactionTime + "초");
+      reactionTimes.push(reactionTime); 
+      alert("반응속도 시간: " + (reactionTime-3) + "초");
       box.innerHTML = '<font size="16">상단에 "반응속도 테스트 시작!" 버튼을 클릭하시면 3초후에 이 박스 안에 버튼이 나타납니다.</font>';
     };
   }, 3000);
@@ -32,7 +32,7 @@ function handleClick() {
 function displayRecords() {
   var recordsMessage = "기록 확인:\n\n";
   for (var i = 0; i < reactionTimes.length; i++) {
-    recordsMessage += "반응 시간: " + (i + 1) + ": " + reactionTimes[i] + "초\n";
+    recordsMessage += "반응 시간: " + (i + 1) + ": " +(reactionTimes[i]-3) + "초\n";
   }
   alert(recordsMessage);
 }
