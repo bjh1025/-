@@ -132,7 +132,6 @@ var lecturelist = [
           var selectedCells = selectedRow.getElementsByTagName("td");
           var lectureNo = selectedCells[4].innerHTML;
 
-          // Check if the lecture already exists in selectTable2
           var existingLecture = Array.from(selectTbody.rows).find(function(row) {
             return row.cells[4].innerHTML === lectureNo;
           });
@@ -141,7 +140,7 @@ var lecturelist = [
             alert("이미 관심과목에 담아둔 강의입니다.");
           } else {
             var selectRow = selectTbody.insertRow();
-            for (var j = 0; j < selectedCells.length - 1; j++) { // Exclude the last cell (cell14)
+            for (var j = 0; j < selectedCells.length - 1; j++) { 
               var cell = selectRow.insertCell(j);
               cell.innerHTML = selectedCells[j].innerHTML;
             }
@@ -154,7 +153,7 @@ var lecturelist = [
               selectTbody.removeChild(selectedRow);
             });
 
-            var removeCell = selectRow.insertCell(selectedCells.length - 1); // Insert the removeButton in the last cell (cell14)
+            var removeCell = selectRow.insertCell(selectedCells.length - 1); 
             removeCell.appendChild(removeButton);
           }
         });
